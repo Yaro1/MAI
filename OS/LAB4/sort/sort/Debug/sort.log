@@ -1,0 +1,22 @@
+﻿  sort.cpp
+c:\users\222\source\repos\os_labs\lab4\sort\sort\sort.cpp(59): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note:  см. объявление "fopen"
+c:\users\222\source\repos\os_labs\lab4\sort\sort\sort.cpp(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note:  см. объявление "fopen"
+c:\users\222\source\repos\os_labs\lab4\sort\sort\sort.cpp(78): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note:  см. объявление "fopen"
+c:\users\222\source\repos\os_labs\lab4\sort\sort\sort.cpp(91): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(538): note:  см. объявление "strdup"
+c:\users\222\source\repos\os_labs\lab4\sort\sort\sort.cpp(98): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(89): note:  см. объявление "strcat"
+c:\users\222\source\repos\os_labs\lab4\sort\sort\sort.cpp(102): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(89): note:  см. объявление "strcat"
+c:\users\222\source\repos\os_labs\lab4\sort\sort\sort.cpp(106): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(89): note:  см. объявление "strcat"
+c:\users\222\source\repos\os_labs\lab4\sort\sort\sort.cpp(108): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(89): note:  см. объявление "strcat"
+c:\users\222\source\repos\os_labs\lab4\sort\sort\sort.cpp(38): warning C4101: dwWritten: неиспользованная локальная переменная
+c:\users\222\source\repos\os_labs\lab4\sort\sort\sort.cpp(33): warning C4101: k: неиспользованная локальная переменная
+c:\users\222\source\repos\os_labs\lab4\sort\sort\sort.cpp(33): warning C4101: j: неиспользованная локальная переменная
+c:\users\222\source\repos\os_labs\lab4\sort\sort\sort.cpp(37): warning C4101: dwLength: неиспользованная локальная переменная
+  sort.vcxproj -> C:\Users\222\source\repos\OS_LABS\LAB4\sort\Debug\sort.exe
