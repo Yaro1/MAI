@@ -1,0 +1,15 @@
+﻿  LAB3_VAR21.cpp
+c:\users\222\source\repos\os_labs\lab3_var21\lab3_var21\lab3_var21.cpp(107): warning C4101: i: неиспользованная локальная переменная
+c:\users\222\source\repos\os_labs\lab3_var21\lab3_var21\lab3_var21.cpp(278): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\222\source\repos\os_labs\lab3_var21\lab3_var21\lab3_var21.cpp(296): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\222\source\repos\os_labs\lab3_var21\lab3_var21\lab3_var21.cpp(162): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note:  см. объявление "scanf"
+c:\users\222\source\repos\os_labs\lab3_var21\lab3_var21\lab3_var21.cpp(165): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note:  см. объявление "fopen"
+c:\users\222\source\repos\os_labs\lab3_var21\lab3_var21\lab3_var21.cpp(182): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1195): note:  см. объявление "fscanf"
+c:\users\222\source\repos\os_labs\lab3_var21\lab3_var21\lab3_var21.cpp(209): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note:  см. объявление "scanf"
+c:\users\222\source\repos\os_labs\lab3_var21\lab3_var21\lab3_var21.cpp(268): warning C4101: dwTemp: неиспользованная локальная переменная
+c:\users\222\source\repos\os_labs\lab3_var21\lab3_var21\lab3_var21.cpp(152): warning C4101: estr: неиспользованная локальная переменная
+  LAB3_VAR21.vcxproj -> C:\Users\222\source\repos\OS_LABS\LAB3_VAR21\Debug\LAB3_VAR21.exe

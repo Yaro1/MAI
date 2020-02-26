@@ -1,0 +1,6 @@
+﻿  LAB3.cpp
+c:\users\222\source\repos\os_labs\lab3\lab3\lab3.cpp(110): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note:  см. объявление "fopen"
+c:\users\222\source\repos\os_labs\lab3\lab3\lab3.cpp(147): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note:  см. объявление "fopen"
+  LAB3.vcxproj -> C:\Users\222\source\repos\OS_LABS\LAB3\Debug\LAB3.exe
