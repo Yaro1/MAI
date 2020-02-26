@@ -1,0 +1,168 @@
+<html><head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=koi8-r"><title>Руководство по ассемблеру NASM</title>
+
+<META NAME="GENERATOR" CONTENT="Super-Puper-Mega-Proga">
+</head>
+<body bgcolor="#DDE1C2"><b><a href="http://www.opennet.ru/docs/">Архив документации OpenNet.ru</a> / 
+Раздел "<a href="http://www.opennet.ru/docs/124.shtml">Программирование, языки</a>" /
+<a href="index.html">Индекс</a>
+</b>
+<hr noshade size=1>
+
+<h1 align=center>Расширенный ассемблер: NASM</h1>
+
+<p align=center><a href="nasm_ru2.html">Следующая глава</a> | <a href="contents.html">Содержание</a> 
+  | Указатель </p>
+<table width="98%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="60%"> 
+      <h2><a name="chapter-1">Глава 1. Введение</a></h2>
+    </td>
+    <td>
+      <div align="right"> <font size="-1" color="#666666">Перевод: <a href="http://asmdev.narod.ru/asmos.html">AsmOS 
+        group</a>, &copy; 2001</font></div>
+    </td>
+  </tr>
+</table>
+<h3><a name="section-1.1">1.1 Что такое NASM?</a></h3>
+<p>Расширенный ассемблер 
+  NASM √ это 80x86 ассемблер, разработанный исходя из принципов переносимости 
+  и модульности. Он поддерживает широкий диапазон форматов объектных файлов, включая 
+  форматы Linux <font color="#000099">a.out</font> и <font color="#000099">ELF</font>, 
+  NetBSD/FreeBSD, <font color="#000099">COFF</font>, Microsoft 16-bit <font color="#000099">OBJ</font> 
+  и <font color="#000099">Win32</font>. Он способен также создавать простые бинарные 
+  файлы. Синтакс NASM максимально упрощен для понимания и похож на синакс Intel, 
+  но слегка посложнее. Он поддерживает инструкции Pentium, P6 и MMX, а также имеет 
+  макро-расширения.  
+<h4><a name="section-1.1.1">1.1.1 Зачем еще один ассемблер?</a></h4>
+<p>Расширенный ассемблер 
+  вырос из идеи, поданной на comp.lang.asm.x86 (или 
+  возможно на alt.lang.asm - я забыл уже, где), когда 
+  по существу не было хорошего свободно доступного ассемблера серии x86 и нужно 
+  было, чтобы кто-то написал его. 
+<ul>
+  <li><font face="Verdana, Arial, Helvetica" size="2" color="#000099">a86</font> 
+    &#151; хороший ассемблер, но не бесплатный, и если вы не заплатите, то 32-битный 
+    код писать не сможете &#151; только DOS.  
+  <li><font face="Verdana, Arial, Helvetica" size="2" color="#000099">gas</font> 
+    свободно доступен и портирован под DOS и Unix, но разработан для обратной 
+    совместимости с <font color="#000099">gcc</font>. Поэтому проверка ошибок 
+    минимальна, к тому-же, с точки зрения любого, кто попробовал что-либо <em>написать</em> 
+    в нем &#151; синтаксис ужасен. Плюс ко всему вы не можете в нем написать 16-разрядный 
+    код (по крайней мере, правильно).  
+  <li><font face="Verdana, Arial, Helvetica" size="2" color="#000099">as86</font> 
+    &#151; только под Linux и (по крайней мере моя версия) кажется не имеет практически 
+    никакой документации. 
+  <li><font face="Verdana, Arial, Helvetica" size="2" color="#000099">MASM</font> 
+    очень хорош, очень дорог и работает только под DOS.  
+  <li><font face="Verdana, Arial, Helvetica" size="2" color="#000099">TASM</font> 
+    лучше, но все еще борется с MASM за совместимость, что означает миллионы директив 
+    и куча волокиты. Его синтаксис &#151; по существу MASM-овский, но с противоречиями 
+    и причудами (в некоторой степени удаляемыми посредством режима <font color="#000099">Ideal</font>). 
+    Он также дорогой и тоже &#151; только ДОС.  
+</ul>
+<p>Таким образом, 
+  представляем на ваше рассмотрение NASM. В сегодняшнем виде он все еще находится 
+  в стадии прототипа &#151; мы не обещаем, что он будет превосходить по быстродействию 
+  любой из упомянутых выше ассемблеров. Но пожалуйста, <em>пожалуйста</em> шлите 
+  нам замечания о замеченных ошибках, исправления, полезную информацию, да все, 
+  что угодно, что вы можете передать нам (и спасибо огромное многим людям, кто 
+  уже сделал это!), и мы будем улучшать его (в смысле, NASM) снова и снова.  
+<h4><a name="section-1.1.2">1.1.2 Условия лицензирования</a></h4>
+<p>Чтобы ознакомиться 
+  с условиями лицензирования, при которых вы можете пользоваться NASM, пожалуйста, 
+  прочитайте файл Licence, являющийся неотъемлимой частью 
+  любого дистрибутивного архива NASM. 
+<h3><a name="section-1.2">1.2 Контакты</a></h3>
+<p>Текущая версия NASM (0.98) поддерживается H. Peter Anvin, <a href="mailto:hpa@zytor.com">hpa@zytor.com</a>. 
+  Если вы захотите сообщить об обнаруженных ошибках, прочитайте сначала <a href="nasm_r10.html#section-10.2">параграф 
+  10.2</a>. </p>
+<p>Страничка NASM в интернете WWW √ <a href="http://www.cryogen.com/Nasm">http://www.cryogen.com/Nasm</a>. 
+</p>
+<p>Связаться с авторами можно по следующим адресам: <a href="mailto:jules@earthcorp.com">jules@earthcorp.com</a> 
+  и <a href="mailto:anakin@pobox.com">anakin@pobox.com</a>. </p>
+<p>Новые релизы NASM доступны на <a href="ftp://ftp.kernel.org/pub/software/devel/nasm/">ftp.kernel.org</a>, 
+  <a href="ftp://sunsite.unc.edu/pub/Linux/devel/lang/assemblers/">sunsite.unc.edu</a>, 
+  <a href="ftp://ftp.simtel.net/pub/simtelnet/msdos/asmutl/">ftp.simtel.net</a> 
+  и <a href="ftp://ftp.coast.net/coast/msdos/asmutil/">ftp.coast.net</a>. Уведомления 
+  и объявления смотрите на <a href="news:comp.lang.asm.x86">comp.lang.asm.x86</a>, 
+  <a href="news:alt.lang.asm">alt.lang.asm</a>, <a href="news:comp.os.linux.announce">comp.os.linux.announce</a> 
+  и <a href="news:comp.archives.msdos.announce">comp.archives.msdos.announce</a> 
+  (последнее из уведомлений автоматически закачивается на <a href="ftp://ftp.simtel.net/pub/simtelnet/msdos/asmutl/">ftp.simtel.net</a>). 
+</p>
+<p>Если вы не имеете доступ к <font color="#000099">Usenet</font> или предпочитаете 
+  получать информацию о выпусках новых версий по электронной почте, вы можете 
+  подписаться на лист рассылки<font color="#000099"> nasm-announce</font>, послав 
+  email по адресу <a href="mailto:majordomo@linux.kernel.org">majordomo@linux.kernel.org</a>, 
+  содержащий строку <font color="#000099">subscribe nasm-announce</font>. </p>
+<p>Если вы хотите также получать информацию о выходе бета-релизов NASM, пошлите 
+  по тому-же адресу (см.выше) письмо, содержащее строку <font color="#000099">nasm-beta</font>.</p>
+<h3><a name="section-1.3">1.3 Инсталляция</a></h3>
+<h4><a name="section-1.3.1">1.3.1 Инсталляция NASM под MS-DOS или Windows</a></h4>
+<p>При получении DOS-архива NASM, <font color="#000099">nasmXXX.zip</font> (где 
+  <font color="#000099">XXX</font> означает номер версии NASM, содержащегося в 
+  архиве), распакуйте его в отдельный каталог (например,<font color="#000099"> 
+  c:\nasm</font>). </p>
+<p>Архив содержит четыре исполняемых файла: NASM-исполняемые файлы <font color="#000099">nasm.exe</font> 
+  и <font color="#000099">nasmw.exe</font>, и NDISASM-исполняемые файлы <font color="#000099">ndisasm.exe</font> 
+  и <font color="#000099">ndisasmw.exe</font>. Файлы, имеющие в окончании имени 
+  <font color="#000099">w</font>, работают под Win9x/ME/NT, а те, которые <font color="#000099">без</font> 
+  <font color="#000099">w</font> &#151; работают под DOS-ом. </p>
+<p>Для запуска NASM требуются только эти файлы, так что скопируйте их в каталог, 
+  указанный в вашей переменной <font color="#000099">PATH</font> , либо отредактируйте 
+  <font color="#000099">autoexec.bat</font> для добавления пути к каталогу с исполнимыми 
+  файлами NASM в переменную <font color="#0000CC">PATH</font>. (если вы устанавливаете 
+  только версию под Win32, можете смело переименовать <font color="#000099">nasmw.exe</font> 
+  в <font color="#000099">nasm.exe</font>.) </p>
+<p>И это все!!! NASM установлен! Для запуска NASM не обязательно иметь отдельный 
+  каталог (если, конечно вы не добавили его к переменной <font color="#000099">PATH</font>), 
+  поэтому можете удалить его (каталог), если у вас мало места на диске. </p>
+<p>Если вы загрузили DOS-архив с исходниками <font color="#000099">nasmXXXs.zip</font>, 
+  он будет также содержать полный исходный текст NASM и набор Make-файлов, которые 
+  вы можете (будем надеяться) использовать для перестроения вашей копии NASM "с 
+  нуля". В файле <font color="#000099">Readme</font> перечислены все Make-файлы 
+  и указано, с какими компиляторами они работают. </p>
+<p>Обратите внимание, что исходники <font color="#000099">insnsa.c, insnsd.c, 
+  insnsi.h</font> и <font color="#000099">insnsn.c</font> автоматически генерируются 
+  из главной таблицы инструкций <font color="#000099">insns.dat</font> Perl-скриптом; 
+  файл <font color="#000099">macros.c</font> генерируется из <font color="#000099">standard.mac</font> 
+  другим Perl-скриптом. Хотя дистрибутив NASM 0.98 и включает эти автогенерируемые 
+  файлы, вам может потребоваться перестроить их (и следовательно, вам будет необходим 
+  интерпретатор Perl), если вы захотите изменить <font color="#000099">insns.dat, 
+  standard.mac</font> или документацию. Возможно в будущем в исходниках не будет 
+  этих файлов вовсе. Версии Perl для ряда платформ, включая DOS и Windows, доступны 
+  на <a href="http://www.cpan.org/ports/">www.cpan.org</a>. </p>
+<h4><a name="section-1.3.2">1.3.2 Инсталляция NASM под Unix</a></h4>
+<p>При получении Unix-архива исходников NASM, <font color="#000099">nasm-X.XX.tar.gz</font> 
+  (где <font color="#000099">X.XX</font> означает номер версии NASM в архиве) 
+  распакуйте его в каталог типа <font color="#000099">/usr/local/src</font>. Архив 
+  при распаковке создаст собственный подкаталог <font color="#000099">nasm-X.XX</font>. 
+</p>
+<p>NASM &#151; автоконфигурируемый пакет: как только вы распакуете его, перейдите 
+  к каталогу, куда он был распакован и введитеe <font color="#000099">./configure</font>. 
+  Данный шелл-скрипт найдет самый подходящий компилятор C для сборки NASM и, соответственно, 
+  настройки Make-файлов. </p>
+<p>Как только NASM сконфигурируется, вы можете ввести <font color="#000099">make</font> 
+  для сборки бинарных файлов <font color="#000099">nasm</font> и <font color="#000099">ndisasm</font>, 
+  а затем ввести <font color="#000099">make install</font> для установки их в<font color="#000099"> 
+  /usr/local/bin</font> и установки man-страниц <font color="#000099">nasm.1</font> 
+  и <font color="#000099">ndisasm.1</font> в <font color="#000099">/usr/local/man/man1</font>. 
+  В качестве альтернативы вы можете указать опции типа <font color="#000099">--prefix</font> 
+  к команде <font color="#000099">configure</font> скрипта (подробности см. в 
+  файле <font color="#000099">INSTALL</font>) или установить программы самостоятельно. 
+</p>
+<p>NASM также имеет набор утилит для обработки заказного формата объектных файлов 
+  <font color="#000099">RDOFF</font>, находящихся в подкаталоге <font color="#000099">rdoff</font> 
+  архива NASM. Вы можете собрать их при помощи <font color="#000099">make rdf</font> 
+  и установить при помощи <font color="#000099">make rdf_install</font>, если 
+  конечно они вам нужны. </p>
+<p>Если NASM будет не в состоянии автоматически выбрать конфигурацию, вы все-же 
+  сможете скомпилировать его при помощи make-файла <font color="#000099">Makefile.unx</font>. 
+  Cкопируйте или переименуйте этот файл в <font color="#000099">Makefile</font> 
+  и попробуйте ввести <font color="#000099">make</font>. Имеется также файл <font color="#000099">Makefile.unx</font> 
+  в подкаталоге <font color="#000099">rdoff</font>. </p>
+<p align="center"><a href="nasm_ru2.html">Следующая глава</a> | <a href="contents.html">Содержание</a> 
+  | Указатель 
+<hr noshade size=1>
+<b><a href="http://www.opennet.ru/docs/">Архив документации на OpenNet.ru</a>
+</body></html>

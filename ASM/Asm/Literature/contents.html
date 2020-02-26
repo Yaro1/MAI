@@ -1,0 +1,593 @@
+<html><head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=koi8-r"><title>Руководство по ассемблеру NASM</title>
+
+<META NAME="GENERATOR" CONTENT="Super-Puper-Mega-Proga">
+</head>
+<body bgcolor="#DDE1C2"><b><a href="http://www.opennet.ru/docs/">Архив документации OpenNet.ru</a> / 
+Раздел "<a href="http://www.opennet.ru/docs/124.shtml">Программирование, языки</a>" /
+<a href="index.html">Индекс</a>
+</b>
+<hr noshade size=1>
+
+<h1 align=center>Расширенный ассемблер: NASM</h1>
+
+<p><font face="Verdana, Arial, Helvetica" size="-1" color="#666666">Перевод: 
+<a href="http://asmdev.narod.ru/asmos.html">AsmOs 
+  group</a>, &copy; 2001 </font> 
+<p>Данное руководство 
+  описывает NASM, расширенный ассемблер, предназначенный для написания программ 
+  процессоров серии Intel x86, способный в то же время работать на разных платформах. 
+  </p>
+<h3><a href="nasm_ru1.html">Глава 1. Введение</a></h3>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td> 
+      <p>&nbsp;</p>
+    </td>
+    <td width="96%"><a href="nasm_ru1.html#section-1.1">1.1. 
+      Что такое NASM?</a> </td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru1.html#section-1.1.1">1.1.1. 
+      Зачем еще один ассемблер?</a><br>
+      <a href="nasm_ru1.html#section-1.1.2">1.1.2. Условия лицензирования</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru1.html#section-1.2">1.2. 
+      Контакты</a><br>
+      <a href="nasm_ru1.html#section-1.3">1.3. Инсталляция</a> </td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru1.html#section-1.3.1">1.3.1. 
+      Инсталляция NASM под MS-DOS или Windows</a><br>
+      <a href="nasm_ru1.html#section-1.3.2">1.3.2. Инсталляция NASM под Unix</a></td>
+  </tr>
+</table>
+<h3><a href="nasm_ru2.html">Глава 2. Запуск NASM</a> </h3>
+<table width="95%" border="0" cellpadding="2" cellspacing="0">
+  <tr> 
+    <td> 
+      <p>&nbsp;</p>
+    </td>
+    <td width="96%"><a href="nasm_ru2.html#section-2.1">2.1. 
+      Синтаксис командной строки NASM</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru2.html#section-2.1.1">2.1.1. 
+      Ключ -o. Указание имени выходного файла</a><br>
+      <a href="nasm_ru2.html#section-2.1.2"> 2.1.2. Ключ -f. Указание формата выходного 
+      файла</a><br>
+      <a href="nasm_ru2.html#section-2.1.3"> 2.1.3. Ключ -l. Генерация файла-листинга</a><br>
+      <a href="nasm_ru2.html#section-2.1.4"> 2.1.4. Ключ -E. Перенаправление ошибок 
+      в файл</a><br>
+      <a href="nasm_ru2.html#section-2.1.5"> 2.1.5. Ключ -s. Перенаправление ошибок 
+      в stdout</a><br>
+      <a href="nasm_ru2.html#section-2.1.6"> 2.1.6. Ключ -i. Каталоги поиска включаемых 
+      файлов</a><br>
+      <a href="nasm_ru2.html#section-2.1.7"> 2.1.7. Ключ -p. Предварительно включаемые 
+      файлы</a><br>
+      <a href="nasm_ru2.html#section-2.1.8"> 2.1.8. Ключ -d. Предопределенные макросы</a><br>
+      <a href="nasm_ru2.html#section-2.1.9"> 2.1.9. Ключ -u. Отмена определения 
+      макроса</a><br>
+      <a href="nasm_ru2.html#section-2.1.10"> 2.1.10. Ключ -e. Только препроцессирование</a><br>
+      <a href="nasm_ru2.html#section-2.1.11"> 2.1.11. Ключ -a. Отключение препроцессора</a><br>
+      <a href="nasm_ru2.html#section-2.1.12"> 2.1.12. Ключ -w. Разрешение/Запрещение 
+      предупреждений при ассемблировании</a><br>
+      <a href="nasm_ru2.html#section-2.1.13"> 2.1.13. Переменная окружения NASM</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru2.html#section-2.2">2.2. 
+      Пользователям MASM: Отличия</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru2.html#section-2.2.1">2.2.1. 
+      NASM чувствителен к регистру символов</a><br>
+      <a href="nasm_ru2.html#section-2.2.2"> 2.2.2. NASM требует квадратные скобки 
+      для ссылок на память</a><br>
+      <a href="nasm_ru2.html#section-2.2.3"> 2.2.3. NASM не хранит типы переменных</a><br>
+      <a href="nasm_ru2.html#section-2.2.4"> 2.2.4. NASM не поддерживает ASSUME</a> 
+      <br>
+      <a href="nasm_ru2.html#section-2.2.5">2.2.5. NASM не поддерживает модели 
+      памяти</a><br>
+      <a href="nasm_ru2.html#section-2.2.6"> 2.2.6. Различия в обработке чисел 
+      с плавающей точкой</a><br>
+      <a href="nasm_ru2.html#section-2.2.7"> 2.2.7. Прочие различия</a></td>
+  </tr>
+</table>
+<h3><a href="nasm_ru3.html">Глава 3. Язык NASM</a></h3>
+<table width="95%" border="0" cellpadding="2" cellspacing="0">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru3.html#section-3.1">3.1. 
+      Обзор ассемблерной строки NASM</a><br>
+      <a href="nasm_ru3.html#section-3.2"> 3.2. Псевдо-инструкции</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru3.html#section-3.2.1">3.2.1. 
+      DB и его друзья: Объявление инициализированных данных</a><br>
+      <a href="nasm_ru3.html#section-3.2.2"> 3.2.2. RESB и его друзья: Объявление 
+      не инициализированных данных</a><br>
+      <a href="nasm_ru3.html#section-3.2.3"> 3.2.3. INCBIN: Включение внешних бинарных 
+      файлов</a><br>
+      <a href="nasm_ru3.html#section-3.2.4"> 3.2.4. EQU: Определение констант</a><br>
+      <a href="nasm_ru3.html#section-3.2.5"> 3.2.5. TIMES: Повторение инструкций 
+      или данных</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru3.html#section-3.3">3.3. 
+      Эффективные адреса</a><br>
+      <a href="nasm_ru3.html#section-3.4"> 3.4. Константы</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td >&nbsp;</td>
+    <td width="92%"><a href="nasm_ru3.html#section-3.4.1">3.4.1. 
+      Числовые константы</a><br>
+      <a href="nasm_ru3.html#section-3.4.2"> 3.4.2. Символьные константы</a><br>
+      <a href="nasm_ru3.html#section-3.4.3"> 3.4.3. Строковые константы</a><br>
+      <a href="nasm_ru3.html#section-3.4.4"> 3.4.4. Константы с плавающей точкой</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru3.html#section-3.5">3.5. 
+      Выражения</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td >&nbsp;</td>
+    <td width="92%"><a href="nasm_ru3.html#section-3.5.1">3.5.1. 
+      |: Побитовый оператор ИЛИ</a><br>
+      <a href="nasm_ru3.html#section-3.5.2"> 3.5.2. ^: Побитовый оператор ИСКЛЮЧАЮЩЕЕ 
+      ИЛИ</a><br>
+      <a href="nasm_ru3.html#section-3.5.3"> 3.5.3. &amp;: Побитовый оператор И</a><br>
+      <a href="nasm_ru3.html#section-3.5.4"> 3.5.4. &lt;&lt; и &gt;&gt;: Операторы 
+      сдвига бит</a><br>
+      <a href="nasm_ru3.html#section-3.5.5"> 3.5.5. + и -: Операторы сложения и 
+      вычитания</a><br>
+      <a href="nasm_ru3.html#section-3.5.6"> 3.5.6. *, /, //, % и %%: Умножение 
+      и деление</a><br>
+      <a href="nasm_ru3.html#section-3.5.7"> 3.5.7. Унарные операторы: +, -, ~ 
+      и SEG</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td >&nbsp;</td>
+    <td width="96%"><a href="nasm_ru3.html#section-3.6">3.6. 
+      SEG и WRT</a><br>
+      <a href="nasm_ru3.html#section-3.7"> 3.7. Критические выражения</a><br>
+      <a href="nasm_ru3.html#section-3.8"> 3.8. Локальные метки</a> </td>
+  </tr>
+</table>
+<h3><a href="nasm_ru4.html">Глава 4. Препроцессор NASM</a> </h3>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru4.html#section-4.1">4.1. 
+      Однострочные макросы</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru4.html#section-4.1.1">4.1.1. 
+      Обычный способ: %define</a><br>
+      <a href="nasm_ru4.html#section-4.1.2"> 4.1.2. Однострочные макросы раннего 
+      связывания: %xdefine</a><br>
+      <a href="nasm_ru4.html#section-4.1.3"> 4.1.3. Отмена определения макроса: 
+      %undef</a><br>
+      <a href="nasm_ru4.html#section-4.1.4"> 4.1.4. Переменные препроцессора: %assign</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru4.html#section-4.2">4.2. 
+      Многострочные макросы: %macro</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru4.html#section-4.2.1">4.2.1. 
+      Перегрузка многострочных макросов</a><br>
+      <a href="nasm_ru4.html#section-4.2.2"> 4.2.2. Локальные метки в макросах</a><br>
+      <a href="nasm_ru4.html#section-4.2.3"> 4.2.3. Поглощающие параметры макросов</a><br>
+      <a href="nasm_ru4.html#section-4.2.4"> 4.2.4. Параметры макросов по умолчанию</a><br>
+      <a href="nasm_ru4.html#section-4.2.5"> 4.2.5. %0: Счетчик параметров</a><br>
+      <a href="nasm_ru4.html#section-4.2.6"> 4.2.6. %rotate: "Вращение" параметров 
+      макросов</a><br>
+      <a href="nasm_ru4.html#section-4.2.7"> 4.2.7. Объединение параметров макросов</a><br>
+      <a href="nasm_ru4.html#section-4.2.8"> 4.2.8. Коды условий в качестве параметров 
+      макросов</a><br>
+      <a href="nasm_ru4.html#section-4.2.9"> 4.2.9. Подавление развертывания макросов 
+      в листинге</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru4.html#section-4.3">4.3. 
+      Условное ассемблирование</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru4.html#section-4.3.1">4.3.1. 
+      %ifdef: Проверка присутствия однострочного макроса</a><br>
+      <a href="nasm_ru4.html#section-4.3.2"> 4.3.2. %ifctx: Проверка контекстного 
+      стека</a><br>
+      <a href="nasm_ru4.html#section-4.3.3"> 4.3.3. %if: Проверка произвольных 
+      числовых выражений</a><br>
+      <a href="nasm_ru4.html#section-4.3.4"> 4.3.4. %ifidn и %ifidni: Проверка 
+      на идентичность текста</a><br>
+      <a href="nasm_ru4.html#section-4.3.5"> 4.3.5. %ifid, %ifnum, %ifstr: Проверка 
+      типов символов</a><br>
+      <a href="nasm_ru4.html#section-4.3.6"> 4.3.6. %error: Сообщения об ошибках, 
+      определяемые пользователем</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru4.html#section-4.4">4.4. 
+      Циклы препроцессора: %rep</a><br>
+      <a href="nasm_ru4.html#section-4.5"> 4.5. Подключение других файлов</a><br>
+      <a href="nasm_ru4.html#section-4.6"> 4.6. Контекстный стек</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru4.html#section-4.6.1">4.6.1. 
+      %push и %pop: Создание и удаление контекста</a><br>
+      <a href="nasm_ru4.html#section-4.6.2"> 4.6.2. Контектно-локальные метки</a><br>
+      <a href="nasm_ru4.html#section-4.6.3"> 4.6.3. Контекстно-локальные однострочные 
+      макросы</a><br>
+      <a href="nasm_ru4.html#section-4.6.4"> 4.6.4. %repl: Переименование контекста</a><br>
+      <a href="nasm_ru4.html#section-4.6.5"> 4.6.5. Пример использования контекстного 
+      стека: Блок IF</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru4.html#section-4.7">4.7. 
+      Стандартные макросы</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru4.html#section-4.7.1">4.7.1. 
+      __NASM_MAJOR__ и __NASM_MINOR__: Версия NASM</a><br>
+      <a href="nasm_ru4.html#section-4.7.2"> 4.7.2. __FILE__ и __LINE__: Имя файла 
+      и номер строки</a><br>
+      <a href="nasm_ru4.html#section-4.7.3"> 4.7.3. STRUC и ENDSTRUC: Объявление 
+      структурных типов данных</a><br>
+      <a href="nasm_ru4.html#section-4.7.4"> 4.7.4. ISTRUC, AT и IEND: Объявление 
+      экземпляров структур</a><br>
+      <a href="nasm_ru4.html#section-4.7.5"> 4.7.5. ALIGN и ALIGNB: Выравнивание 
+      данных</a> </td>
+  </tr>
+</table>
+<h3><a href="nasm_ru4.html#section-4.1.4"></a> <a href="nasm_ru5.html">Глава 5. 
+  Директивы ассемблера</a> </h3>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru5.html#section-5.1">5.1. 
+      BITS: Указание разрядности выполняемого кода</a><br>
+      <a href="nasm_ru5.html#section-5.2"> 5.2. SECTION или SEGMENT: Изменение 
+      и описание секций</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru5.html#section-5.2.1">5.2.1. 
+      Макрос __SECT__</a> </td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru5.html#section-5.3">5.3. 
+      ABSOLUTE: Определение абсолютных меток</a><br>
+      <a href="nasm_ru5.html#section-5.4"> 5.4. EXTERN: Импорт символов из других 
+      модулей</a><br>
+      <a href="nasm_ru5.html#section-5.5"> 5.5. GLOBAL: Экспорт символов в другие 
+      модули</a><br>
+      <a href="nasm_ru5.html#section-5.6"> 5.6. COMMON: Определение общих данных</a> 
+      </td>
+  </tr>
+</table>
+<h3><a href="nasm_ru6.html">Глава 6. Выходные форматы</a> </h3>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru6.html#section-6.1">6.1. 
+      bin: Плоский бинарный формат</a> </td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru6.html#section-6.1.1">6.1.1. 
+      ORG: Начало бинарного файла</a><br>
+      <a href="nasm_ru6.html#section-6.1.2"> 6.1.2. bin-расширение директивы SECTION 
+      </a> </td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru6.html#section-6.2">6.2. 
+      obj: Объектные файлы OMF Microsoft</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru6.html#section-6.2.1">6.2.1. 
+      obj-расширения директивы SEGMENT </a><br>
+      <a href="nasm_ru6.html#section-6.2.2"> 6.2.2. GROUP: Определение групп сегментов</a><br>
+      <a href="nasm_ru6.html#section-6.2.3"> 6.2.3. UPPERCASE: Отключение чувствительности 
+      к регистру</a><br>
+      <a href="nasm_ru6.html#section-6.2.4"> 6.2.4. IMPORT: Импортирование символов 
+      из DLL</a><br>
+      <a href="nasm_ru6.html#section-6.2.5"> 6.2.5. EXPORT: Экспортирование символов 
+      в DLL</a><br>
+      <a href="nasm_ru6.html#section-6.2.6"> 6.2.6. ..start: Определение точки 
+      входа в программу</a><br>
+      <a href="nasm_ru6.html#section-6.2.7"> 6.2.7. obj-расширения директивы EXTERN 
+      </a><br>
+      <a href="nasm_ru6.html#section-6.2.8"> 6.2.8. obj-расширения директивы COMMON 
+      </a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru6.html#section-6.3">6.3. 
+      win32: Объектные файлы Win32 Майкрософт</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru6.html#section-6.3.1">6.3.1. 
+      win32-расширения директивы SECTION </a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru6.html#section-6.4">6.4. 
+      coff: Общий формат объектных файлов</a><br>
+      <a href="nasm_ru6.html#section-6.5"> 6.5. elf: Объектные файлы ELF Линукс</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru6.html#section-6.5.1">6.5.1. 
+      elf-расширения директивы SECTION </a><br>
+      <a href="nasm_ru6.html#section-6.5.2"> 6.5.2. Позиционно-независимый код: 
+      Специальные символы формата elf и WRT</a><br>
+      <a href="nasm_ru6.html#section-6.5.3"> 6.5.3. elf-расширения директивы GLOBAL 
+      </a><br>
+      <a href="nasm_ru6.html#section-6.5.4"> 6.5.4. elf-расширение директивы COMMON</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru6.html#section-6.6">6.6. 
+      aout: Объектные файлы a.out Линукс</a><br>
+      <a href="nasm_ru6.html#section-6.7"> 6.7. aoutb: Объектные файлы a.out NetBSD/FreeBSD/OpenBSD</a><br>
+      <a href="nasm_ru6.html#section-6.8"> 6.8. as86: Объектные файлы as86 Линукс</a><br>
+      <a href="nasm_ru6.html#section-6.9"> 6.9. rdf: Перемещаемые динамические 
+      объектные файлы</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru6.html#section-6.9.1">6.9.1. 
+      Требование библиотеки: Директива LIBRARY</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru6.html#section-6.10">6.10. 
+      dbg: Формат для отладки</a></td>
+  </tr>
+</table>
+<h3><a href="nasm_ru7.html">Глава 7. Написание 16-битного кода (DOS, Windows 3/3.1)</a> 
+</h3>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru7.html#section-7.1">7.1. 
+      Получение .EXE файлов</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru7.html#section-7.1.1">7.1.1. 
+      Использование формата obj для получения .EXE файлов</a><br>
+      <a href="nasm_ru7.html#section-7.1.2"> 7.1.2. Использование формата bin для 
+      получения .EXE файлов</a> </td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru7.html#section-7.2">7.2. 
+      Получение .COM файлов</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru7.html#section-7.2.1">7.2.1. 
+      Использование формата bin для получения .COM файлов</a><br>
+      <a href="nasm_ru7.html#section-7.2.2"> 7.2.2. Использование формата obj для 
+      получения .COM файлов</a> </td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru7.html#section-7.3">7.3. 
+      Получение .SYS файлов</a><br>
+      <a href="nasm_ru7.html#section-7.4"> 7.4. Взаимодействие с 16-битными C-программами</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru7.html#section-7.4.1">7.4.1. 
+      Внешние символьные имена</a><br>
+      <a href="nasm_ru7.html#section-7.4.2"> 7.4.2. Модели памяти</a><br>
+      <a href="nasm_ru7.html#section-7.4.3"> 7.4.3. Определения и вызовы функций</a><br>
+      <a href="nasm_ru7.html#section-7.4.4"> 7.4.4. Доступ к элементам данных</a><br>
+      <a href="nasm_ru7.html#section-7.4.5"> 7.4.5. c16.mac: Макросы для 16-битного 
+      C-интерфейса</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru7.html#section-7.5">7.5. 
+      Взаимодействие с программами Borland Pascal</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru7.html#section-7.5.1">7.5.1. 
+      Соглашение о вызовах в Pascal</a><br>
+      <a href="nasm_ru7.html#section-7.5.2"> 7.5.2. Ограничение имен сегментов 
+      в Borland Pascal</a><br>
+      <a href="nasm_ru7.html#section-7.5.3"> 7.5.3. Использование c16.mac с Pascal-программами</a></td>
+  </tr>
+</table>
+<h3><a href="nasm_ru8.html">Глава 8. Написание 32-битного кода (Unix, Win32, DJGPP)</a> 
+</h3>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru8.html#section-8.1">8.1. Интерфейс с 32-ух 
+      битными программами на Си</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru8.html#section-8.1.1">8.1.1. 
+      </a><a href="nasm_ru7.html#section-7.4.1">Внешние 
+      символьные имена</a><br>
+      <a href="nasm_ru8.html#section-8.1.2"> 8.1.2. </a><a href="nasm_ru7.html#section-7.4.3">Определение 
+      и вызов функций</a><br>
+      <a href="nasm_ru8.html#section-8.1.3"> 8.1.3. </a><a href="nasm_ru7.html#section-7.4.4">Доступ 
+      к переменным</a><br>
+      <a href="nasm_ru8.html#section-8.1.4"> 8.1.4. c32.mac: </a><a href="nasm_ru7.html#section-7.4.5">Вспомогательные 
+      макросы для 32-ух битного интерфейса с Си</a> </td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru8.html#section-8.2">8.2. Написание разделяемых 
+      библиотек для NetBSD/FreeBSD/OpenBSD и Linux/ELF</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_ru8.html#section-8.2.1">8.2.1. Получение адреса 
+      ГТС</a><br>
+      <a href="nasm_ru8.html#section-8.2.2"> 8.2.2. Нахождение ваших локальных 
+      переменных </a><br>
+      <a href="nasm_ru8.html#section-8.2.3"> 8.2.3. Нахождение внешних и общих 
+      переменных </a><br>
+      <a href="nasm_ru8.html#section-8.2.4"> 8.2.4. Экспортирование имен в библиотеку 
+      пользователя </a><br>
+      <a href="nasm_ru8.html#section-8.2.5"> 8.2.5. Вызов процедур вне библиотеки</a><br>
+      <a href="nasm_ru8.html#section-8.2.6"> 8.2.6. Создание библиотечного файла</a></td>
+  </tr>
+</table>
+<h3><a href="nasm_ru9.html">Глава 9. Смешивание16- и 32-битного кода</a> </h3>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_ru9.html#section-9.1">9.1. Переходы между сегментами 
+      смешанной разрядности</a><br>
+      <a href="nasm_ru9.html#section-9.2"> 9.2. Адресация между сегментами различной 
+      разрядности </a><br>
+      <a href="nasm_ru9.html#section-9.3"> 9.3. Другие инструкции смешанного размера</a> 
+    </td>
+  </tr>
+</table>
+<h3><a href="nasm_r1010.html">Глава 10. Разрешение проблем</a> </h3>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_r1010.html#section-10.1">10.1. 
+      Общие проблемы</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="92%"><a href="nasm_r1010.html#section-10.1.1">10.1.1. Генерация NASM 
+      неэффективного кода</a><br>
+      <a href="nasm_r1010.html#section-10.1.2"> 10.1.2. Мои &quot;JUMPы&quot; вне 
+      диапазона </a><br>
+      <a href="nasm_r1010.html#section-10.1.3"> 10.1.3. ORG не работает</a><br>
+      <a href="nasm_r1010.html#section-10.1.4"> 10.1.4. TIMES не работает</a></td>
+  </tr>
+</table>
+<table width="95%" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="96%"><a href="nasm_r1010.html#section-10.2">10.2. Дефекты (Ошибки)</a></td>
+  </tr>
+</table>
+<h3> Указатель </h3>
+<hr noshade size=1>
+<b><a href="http://www.opennet.ru/docs/">Архив документации на OpenNet.ru</a>
+</body></html>
