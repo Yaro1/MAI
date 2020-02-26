@@ -1,0 +1,14 @@
+﻿  TBINTREE.cpp
+c:\users\222\source\repos\oop_labs\lab7\lab7\tbintree.cpp(176): warning C4661: std::shared_ptr<BinTreeItem<T>> TBinTree<T>::FindMin(std::shared_ptr<BinTreeItem<T>>): отсутствует подходящее определение для запроса на явное создание экземпляра шаблона
+          with
+          [
+              T=Figure
+          ]
+  c:\users\222\source\repos\oop_labs\lab7\lab7\tbintree.h(22): note:  см. объявление "TBinTree<Figure>::FindMin"
+c:\users\222\source\repos\oop_labs\lab7\lab7\tbintree.cpp(14): warning C4661: std::shared_ptr<BinTreeItem<T>> TBinTree<T>::FindMin(std::shared_ptr<BinTreeItem<T>>): отсутствует подходящее определение для запроса на явное создание экземпляра шаблона
+          with
+          [
+              T=Figure
+          ]
+  c:\users\222\source\repos\oop_labs\lab7\lab7\tbintree.h(22): note:  см. объявление "TBinTree<Figure>::FindMin"
+  LAB7.vcxproj -> C:\Users\222\source\repos\OOP_LABS\LAB7\Debug\LAB7.exe
