@@ -1,0 +1,3 @@
+SELECT DISTINCT check.id_w FROM check WHERE check.id_cm == 1 INTO CURSOR _id_w
+SELECT worker.name FROM worker FULL OUTER JOIN _id_w ON worker.id_w = _id_w.id_w WHERE _id_w.id_w IS NULL
+# определить какие кассиры не работали на данном аппарате

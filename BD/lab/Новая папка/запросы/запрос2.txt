@@ -1,0 +1,5 @@
+SELECT DISTINCT check.id_w FROM check WHERE check.id_cm != 1 INTO CURSOR _id_w
+SELECT worker.name FROM worker, _id_w WHERE _id_w.id_w = worker.id_w
+
+
+# определить какие кассиры не работали на данном аппарате

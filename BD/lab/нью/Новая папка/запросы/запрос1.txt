@@ -1,0 +1,9 @@
+# определить самого прибыльного кассира
+
+
+SELECT place.id_c, place.id_prod, quantity*price_for_one FROM place, product WHERE place.id_prod = product.id_prod INTO CURSOR tmp
+SELECT * FROM check LEFT OUTER JOIN tmp ON tmp.id_c = check.id_c INTO CURSOR tmp2
+SELECT id_w, SUM(exp_3) FROM tmp2 GROUP BY id_w INTO CURSOR tmp3
+SELECT MAX(sum_exp_3) FROM tmp3 INTO CURSOR maximum
+SELECT id_w, maximum.max_sum_exp_3  FROM tmp3, maximum WHERE sum_exp_3 = max_sum_exp_3 INTO CURSOR W
+SELECT worker.name FROM worker, W WHERE  W.id_w = worker.id_w

@@ -1,0 +1,6 @@
+SELECT id_w, SUM(price) FROM check GROUP BY id_w INTO CURSOR sum_workers
+SELECT id_w FROM sum_workers WHERE sum_price = (SELECT MIN(sum_price) FROM sum_workers) INTO CURSOR _id_w
+SELECT worker.name FROM worker WHERE worker.id_w = _id_w.id_w
+
+
+# определить самых убыточного кассира

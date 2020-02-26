@@ -1,0 +1,4 @@
+SELECT id_w FROM check WHERE price = (SELECT MAX(price) FROM check) INTO CURSOR _ids
+SELECT worker.name FROM worker, _ids WHERE _ids.id_w = worker.id_w
+
+# определить кассира, выбившего максимальный чек

@@ -1,0 +1,6 @@
+SELECT AVG(price) FROM check INTO CURSOR mean
+SELECT id_cm, AVG(price) FROM check GROUP BY id_cm INTO CURSOR mean_group
+SELECT id_cm FROM mean_group WHERE mean_group.avg_price > mean.avg_price
+
+
+# определить кассы в которых средний чек выше среднего среди всех касс

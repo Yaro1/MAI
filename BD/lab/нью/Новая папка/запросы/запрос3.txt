@@ -1,0 +1,4 @@
+SELECT id_p FROM place WHERE quantity = (SELECT MAX(quantity) FROM place) INTO CURSOR _idp
+SELECT name_prod FROM product WHERE id_prod = _idp.id_p
+
+# определить наиболее популярный продукт

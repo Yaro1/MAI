@@ -1,0 +1,6 @@
+SELECT place.id_prod, place.quantity, price_for_one FROM place, product INTO CURSOR tmp
+SELECT id_prod, price_for_one*quantity FROM tmp INTO CURSOR tmp2
+SELECT id_prod FROM tmp2 WHERE tmp2.exp_2 = (SELECT MAX(exp_2) FROM tmp2) INTO CURSOR tmp3
+SELECT name_prod FROM product WHERE tmp3.id_prod = id_prod
+
+# определить продукт, проданный на наибольшую сумму

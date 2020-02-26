@@ -1,0 +1,4 @@
+SELECT id_cm, COUNT(id_cm) as cnt FROM check GROUP BY id_cm INTO CURSOR tmp
+SELECT cash_machine.id_cm, tmp.cnt FROM tmp, cash_machine WHERE tmp.cnt = (SELECT MAX(cnt) FROM tmp) AND tmp.id_cm = cash_machine.id_cm
+
+# самые занятые кассы
