@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/222/Desktop/SP/sp19/lab05/baselexer.cpp
+baselexer.h
+C:/Users/222/Desktop/SP/sp19/lab05/baselexer.h
+
+C:/Users/222/Desktop/SP/sp19/lab05/baselexer.h
+iostream
+-
+fstream
+-
+string
+-
+fsm.h
+C:/Users/222/Desktop/SP/sp19/lab05/fsm.h
+
+C:/Users/222/Desktop/SP/sp19/lab05/fsm.h
+vector
+-
+map
+-
+set
+-
+
+C:/Users/222/Desktop/SP/sp19/lab05/lexer.h
+baselexer.h
+C:/Users/222/Desktop/SP/sp19/lab05/baselexer.h
+
+C:/Users/222/Desktop/SP/sp19/lab05/testlex.cpp
+iostream
+-
+fstream
+-
+iomanip
+-
+lexer.h
+C:/Users/222/Desktop/SP/sp19/lab05/lexer.h
+baselexer.cpp
+C:/Users/222/Desktop/SP/sp19/lab05/baselexer.cpp
+

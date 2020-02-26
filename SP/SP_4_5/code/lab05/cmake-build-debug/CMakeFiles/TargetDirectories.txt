@@ -1,0 +1,3 @@
+C:/Users/222/Desktop/SP/sp19/lab05/cmake-build-debug/CMakeFiles/lab05.dir
+C:/Users/222/Desktop/SP/sp19/lab05/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/222/Desktop/SP/sp19/lab05/cmake-build-debug/CMakeFiles/rebuild_cache.dir
